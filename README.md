@@ -18,3 +18,5 @@ backend is running on port 7259 and frontend on 5173
 Additional info that i didnt manage to do (run out of time):
 1. I would ideally create one more project in .net for Unit tests
 2. Same for frontend I would create .spec.ts files for each file
+3. I would also add some polcies in repo for PR creating also as CI builds
+4. I would also add docker and docker-compose files to run solutions containereized
