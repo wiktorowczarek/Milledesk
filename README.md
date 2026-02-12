@@ -13,3 +13,8 @@ Frontend:
 3. after install type "npm run dev"
 
 backend is running on port 7259 and frontend on 5173
+
+
+Additional info that i didnt manage to do (run out of time):
+1. I would ideally create one more project in .net for Unit tests
+2. Same for frontend I would create .spec.ts files for each file
