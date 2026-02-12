@@ -2,11 +2,6 @@
 using Milledesk.Application.Abstractions;
 using Milledesk.Domain.Entities;
 using Milledesk.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Milledesk.Infrastructure.Background
 {
@@ -40,7 +35,6 @@ namespace Milledesk.Infrastructure.Background
         {
             var cacheKey = $"data-{job.ClientId}";
 
-            // Check cache
             var cached = await _cacheService.GetAsync<string>(cacheKey, token);
             if (cached != null)
             {
@@ -48,7 +42,6 @@ namespace Milledesk.Infrastructure.Background
                 return;
             }
 
-            // Every 10th request fails
             var currentCount = _requestCounter.Increment();
             if (currentCount % 10 == 0)
             {
@@ -56,7 +49,6 @@ namespace Milledesk.Infrastructure.Background
                 return;
             }
 
-            // Simulate 60s processing
             await Task.Delay(TimeSpan.FromSeconds(60), token);
 
             var result = $"Generated data for client {job.ClientId} at {DateTime.UtcNow}";

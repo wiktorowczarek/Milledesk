@@ -1,0 +1,1 @@
+export type UseDataJobReturn = ReturnType<typeof import('./useDataJobs').useDataJobs>;
