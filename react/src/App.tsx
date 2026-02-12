@@ -1,15 +1,17 @@
-import { useDataJob } from './hooks/useDataJob';
-import { DataJobForm } from './features/dataProcessing/DataJobForm';
-import { DataJobStatus } from './features/dataProcessing/DataJobStatus';
+import { useDataJobs } from './hooks/useDataJobs'
+import { DataJobList } from './features/dataProcessing/DataJobList';
 
 function App() {
-  const job = useDataJob();
+  const { jobs, startJob } = useDataJobs();
 
   return (
     <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
       <h1>Milledesk Data Job Demo</h1>
-      <DataJobForm {...job} />
-      <DataJobStatus {...job} />
+      <button onClick={startJob} style={{ padding: '0.5rem 1rem', marginBottom: '1rem' }}>
+        Start Data Job
+      </button>
+
+      <DataJobList jobs={jobs} />
     </div>
   );
 }
